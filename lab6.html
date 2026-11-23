@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta name="author" content="vlad1x_">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Лабораторна робота №6 — SVG</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lab7.css">
+    <link rel="stylesheet" href="lab6.css">
+</head>
+
+<body class="lab6-page">
+
+<header>
+    <div class="logo">
+        <div class="pc-icon"></div>
+        ComputerZone
+    </div>
+
+    <nav>
+        <a href="index.html">Головна</a>
+        <a href="company.html">Комп'ютери</a>
+        <a href="news.html">Новини</a>
+        <a href="lists.html">Списки</a>
+        <a href="menu.html">Меню сайту</a>
+        <a href="tables.html">Таблиці</a>
+        <a href="forms.html">Форми</a>
+        <a href="lab6.html">Лабораторна №6</a>
+        <a href="lab7.html">Лабораторна №7</a>
+    </nav>
+</header>
+
+<main class="lab6-container">
+
+    <h1 class="lab6-title">
+        Лабораторна робота №6
+    </h1>
+
+    <p class="lab6-description">
+        Тема: Основи SVG. Проєктування веб-документів
+        за допомогою графічних об'єктів.
+    </p>
+
+    <!-- ЗАВДАННЯ 1. СТАТИЧНИЙ МАЛЮНОК -->
+
+    <section class="lab6-section">
+
+        <h2>1. Статичне зображення — варіант №2</h2>
+
+        <p>
+            За допомогою SVG побудовано графічне зображення
+            відповідно до другого варіанта методичних вказівок.
+            Малюнок складається з геометричних фігур,
+            розташованих відносно координатних осей X та Y.
+        </p>
+
+        <div class="svg-frame">
+
+            <object
+                type="image/svg+xml"
+                data="variant2.svg"
+                name="Variant 2"
+                aria-label="Статичне зображення другого варіанта">
+
+                <param name="src" value="variant2.svg">
+
+                Ваш браузер не підтримує SVG-графіку.
+
+            </object>
+
+        </div>
+
+    </section>
+
+
+    <!-- ЗАВДАННЯ 2. ТЕКСТ ПО КРИВІЙ -->
+
+    <section class="lab6-section">
+
+        <h2>2. Розташування тексту по кривій</h2>
+
+        <p>
+            Для розміщення тексту вздовж кривої використано
+            елементи path та textPath.
+            Текст розташовується відповідно до форми
+            заданої кривої.
+        </p>
+
+        <div class="svg-frame">
+
+            <svg width="100%" height="150"
+                 viewBox="0 0 700 150"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <defs>
+                    <path id="text-curve"
+                          d="M 60 100 Q 350 -20 640 100"
+                          fill="none"/>
+                </defs>
+
+                <path d="M 60 100 Q 350 -20 640 100"
+                      fill="none"
+                      stroke="#48a9ff"
+                      stroke-width="2"
+                      stroke-dasharray="5,5"/>
+
+                <text font-family="Arial"
+                      font-size="27"
+                      font-weight="bold"
+                      fill="#0000ff">
+
+                    <textPath href="#text-curve"
+                              startOffset="50%"
+                              text-anchor="middle">
+
+                        COMPUTERZONE — SVG GRAPHICS
+
+                    </textPath>
+
+                </text>
+
+            </svg>
+
+        </div>
+
+    </section>
+
+
+    <!-- ЗАВДАННЯ 3. АНІМАЦІЯ SVG -->
+
+    <section class="lab6-section">
+
+        <h2>3. Динамічна зміна графічних фігур</h2>
+
+        <p>
+            За допомогою SVG-анімації реалізовано
+            п'ять видів динамічних змін геометричних фігур.
+            Для цього використовуються елементи animate
+            та animateTransform.
+        </p>
+
+        <div class="animation-frame">
+
+            <svg width="900"
+                 height="240"
+                 viewBox="0 0 900 240"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <!-- ФОН -->
+                <rect x="0" y="0"
+                      width="900" height="240"
+                      fill="#ffffff"/>
+
+                <!-- ПАНЕЛІ -->
+                <g fill="#eaf4ff"
+                   stroke="#285477"
+                   stroke-width="1">
+
+                    <rect x="10" y="10"
+                          width="160" height="220"
+                          rx="8"/>
+
+                    <rect x="185" y="10"
+                          width="160" height="220"
+                          rx="8"/>
+
+                    <rect x="360" y="10"
+                          width="160" height="220"
+                          rx="8"/>
+
+                    <rect x="535" y="10"
+                          width="160" height="220"
+                          rx="8"/>
+
+                    <rect x="710" y="10"
+                          width="180" height="220"
+                          rx="8"/>
+
+                </g>
+
+
+                <!-- 3.1 ЗМІНА КОЛЬОРУ -->
+
+                <text x="90" y="40"
+                      font-size="16"
+                      text-anchor="middle"
+                      fill="#071525">
+
+                    3.1 Зміна кольору
+
+                </text>
+
+                <circle cx="90" cy="115" r="32"
+                        fill="#0000ff"
+                        stroke="#000000"
+                        stroke-width="2">
+
+                    <animate
+                        attributeName="fill"
+                        values="#0000ff;#00c8ff;#ff0000;#0000ff"
+                        dur="4s"
+                        repeatCount="indefinite"/>
+
+                </circle>
+
+
+                <!-- 3.2 ПЕРЕМІЩЕННЯ -->
+
+                <text x="265" y="40"
+                      font-size="16"
+                      text-anchor="middle"
+                      fill="#071525">
+
+                    3.2 Переміщення
+
+                </text>
+
+                <g>
+
+                    <rect x="230" y="85"
+                          width="65"
+                          height="65"
+                          fill="#0000ff"
+                          stroke="#000000"
+                          stroke-width="2"/>
+
+                    <animateTransform
+                        attributeName="transform"
+                        type="translate"
+                        values="0 0;20 0;0 0"
+                        dur="3s"
+                        repeatCount="indefinite"/>
+
+                </g>
+
+
+                <!-- 3.3 ОБЕРТАННЯ -->
+
+                <text x="440" y="40"
+                      font-size="16"
+                      text-anchor="middle"
+                      fill="#071525">
+
+                    3.3 Обертання
+
+                </text>
+
+                <g transform="translate(405 80)">
+
+                    <rect x="0" y="0"
+                          width="70"
+                          height="70"
+                          fill="#0000ff"
+                          stroke="#000000"
+                          stroke-width="2"/>
+
+                   <animateTransform attributeName="transform" type="rotate"
+                        values="0 35 35;360 35 35"
+                        dur="4s"
+                        repeatCount="indefinite"
+                        additive="sum"/>
+
+                </g>
+
+
+                <!-- 3.4 ЗМІНА РОЗМІРУ -->
+
+                <text x="615" y="40"
+                      font-size="16"
+                      text-anchor="middle"
+                      fill="#071525">
+
+                    3.4 Зміна розміру
+
+                </text>
+
+                <g transform="translate(615 115)">
+
+                    <circle cx="0" cy="0"
+                            r="28"
+                            fill="#0000ff"
+                            stroke="#000000"
+                            stroke-width="2">
+
+                        <animateTransform
+                            attributeName="transform"
+                            type="scale"
+                            values="1;1.5;1"
+                            dur="3s"
+                            repeatCount="indefinite"/>
+
+                    </circle>
+
+                </g>
+
+
+                <!-- 3.5 ПЕРЕКРУЧУВАННЯ -->
+
+                <text x="800" y="40"
+                      font-size="16"
+                      text-anchor="middle"
+                      fill="#071525">
+
+                    3.5 Перекручування
+
+                </text>
+
+                <g transform="translate(765 80)">
+
+                    <rect x="0" y="0"
+                          width="70"
+                          height="70"
+                          fill="#0000ff"
+                          stroke="#000000"
+                          stroke-width="2"/>
+
+                    <animateTransform 
+                    attributeName="transform" type="skewX"
+                    values="0;25;0"
+                    dur="3s"
+                    repeatCount="indefinite"
+                    additive="sum"/>
+
+                </g>
+
+
+                <!-- ПІДПИСИ -->
+
+                <g font-family="Arial"
+                   font-size="13"
+                   text-anchor="middle"
+                   fill="#071525">
+
+                    <text x="90" y="195">
+                        animate: fill
+                    </text>
+
+                    <text x="265" y="195">
+                        translate
+                    </text>
+
+                    <text x="440" y="195">
+                        rotate
+                    </text>
+
+                    <text x="615" y="195">
+                        scale
+                    </text>
+
+                    <text x="800" y="195">
+                        skewX
+                    </text>
+
+                </g>
+
+            </svg>
+
+        </div>
+
+        <p class="animation-description">
+            Анімація виконується автоматично та повторюється
+            безперервно. Кожна фігура демонструє окремий
+            тип динамічної трансформації.
+        </p>
+
+    </section>
+
+
+    <!-- ДЕМОНСТРАЦІЯ HTML-ТЕГІВ -->
+
+    <section class="lab6-section">
+
+        <h2>4. Способи підключення SVG до HTML</h2>
+
+        <p>
+            Для демонстрації способів вбудовування
+            SVG-графіки використано теги object, param,
+            embed, noembed та iframe.
+        </p>
+
+        <details>
+
+            <summary>
+                Показати приклади підключення SVG
+            </summary>
+
+            <div class="svg-methods">
+
+                <div class="svg-method">
+
+                    <h3>Тег embed</h3>
+
+                    <embed
+                        src="variant2.svg"
+                        type="image/svg+xml"
+                        width="100%"
+                        height="260"
+                        name="SVG Embed"
+                        pluginspage="https://www.adobe.com/">
+
+                    <noembed>
+                        Браузер не підтримує SVG.
+                    </noembed>
+
+                </div>
+
+
+                <div class="svg-method">
+
+                    <h3>Тег iframe</h3>
+
+                    <iframe
+                        src="variant2.svg"
+                        width="100%"
+                        height="260"
+                        name="SVG Frame"
+                        title="SVG через iframe"
+                        frameborder="0"
+                        marginwidth="0"
+                        marginheight="0">
+
+                        Ваш браузер не підтримує iframe.
+
+                    </iframe>
+
+                </div>
+
+            </div>
+
+        </details>
+
+    </section>
+
+</main>
+
+
+<footer>
+    ComputerZone © 2026 | Лабораторна робота №6 — SVG
+</footer>
+
+<script src="lab7.js"></script>
+</body>
+</html>

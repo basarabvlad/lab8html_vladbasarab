@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="vlad1x_">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+    <title>Лабораторна робота №7 — JavaScript</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lab7.css">
+
+    <script src="lab7.js" defer></script>
+</head>
+
+<body class="lab7-page">
+
+<header>
+    <div class="logo">
+        <div class="pc-icon"></div>
+        ComputerZone
+    </div>
+
+    <nav>
+        <a href="index.html">Головна</a>
+        <a href="company.html">Комп'ютери</a>
+        <a href="news.html">Новини</a>
+        <a href="lists.html">Списки</a>
+        <a href="menu.html">Меню сайту</a>
+        <a href="tables.html">Таблиці</a>
+        <a href="forms.html">Форми</a>
+        <a href="lab6.html">Лабораторна №6</a>
+        <a href="lab7.html">Лабораторна №7</a>
+    </nav>
+</header>
+
+<main class="lab7-container">
+
+    <h1 class="lab7-title">
+        Лабораторна робота №7
+    </h1>
+
+    <p class="lab7-description">
+        Тема: Розробка динамічних елементів вебсайтів
+        з використанням JavaScript-сценаріїв.
+    </p>
+
+    <!-- ЗАВДАННЯ 1. ПОДІЇ ГОЛОВНОГО ВІКНА -->
+
+    <section class="lab7-section">
+
+        <h2>1. Обробка подій головного вікна</h2>
+
+        <p>
+            У цьому розділі демонструється обробка подій
+            браузера та виведення повідомлень про їх виникнення.
+        </p>
+
+        <div class="lab7-buttons">
+            <button type="button" id="show-window-events">
+                Показати інформацію про події
+            </button>
+
+            <button type="button" id="clear-window-events">
+                Очистити повідомлення
+            </button>
+        </div>
+
+        <textarea
+            id="window-events-output"
+            rows="10"
+            readonly
+            placeholder="Повідомлення про події браузера з'являтимуться тут..."></textarea>
+
+        <p class="lab7-note">
+            Деякі події залежать від підтримки браузера.
+            Для застарілих подій використано сучасні аналоги.
+        </p>
+
+    </section>
+
+
+    <!-- ЗАВДАННЯ 2. ПОДІЇ ЕЛЕМЕНТІВ СТОРІНКИ -->
+
+    <section class="lab7-section">
+
+        <h2>2. Обробка подій елементів сторінки</h2>
+
+        <p>
+            Наведи курсор, натисни або перетягни текст,
+            щоб перевірити роботу обробників подій миші.
+        </p>
+
+        <div class="lab7-event-demo">
+
+            <h3 id="event-heading" draggable="true">
+                Натисни або перетягни цей заголовок
+            </h3>
+
+            <p id="event-text" class="lab7-event-text" draggable="true">
+                Це текстовий елемент для перевірки подій
+                onclick, ondblclick, onmousedown, onmouseup,
+                onmouseover, onmouseout та інших.
+            </p>
+
+            <div id="drop-zone" class="lab7-drop-zone">
+                Перетягни сюди заголовок або текст
+            </div>
+
+            <div class="lab7-scroll-demo" id="scroll-demo">
+                <p>
+                    Область для перевірки події прокручування.
+                    Прокручуй цей блок вниз та вгору.
+                </p>
+
+                <p>
+                    JavaScript дозволяє реагувати на дії користувача
+                    та змінювати стиль елементів сторінки.
+                </p>
+
+                <p>
+                    Подія scroll виникає під час прокручування
+                    вмісту цього блоку.
+                </p>
+
+                <p>
+                    Це додатковий текст для створення прокручування.
+                </p>
+
+                <p>
+                    Кінець області прокручування.
+                </p>
+            </div>
+
+        </div>
+
+        <h3>Журнал подій елементів</h3>
+
+        <textarea
+            id="element-events-output"
+            rows="9"
+            readonly
+            placeholder="Тут відображатимуться події елементів..."></textarea>
+
+    </section>
+
+
+    <!-- ЗАВДАННЯ 3. ІСТОРІЯ ЗВЕРНЕНЬ ДО СТОРІНОК -->
+
+    <section class="lab7-section">
+
+        <h2>3. Історія звернень до сторінок</h2>
+
+        <p>
+            Після натискання кнопки Run Task буде виведено
+            історію відвідування сторінок сайту ComputerZone.
+        </p>
+
+        <form id="history-form">
+
+            <button type="button" id="run-task">
+                Run Task
+            </button>
+
+            <button type="button" id="clear-history">
+                Очистити історію
+            </button>
+
+            <textarea
+                id="history-output"
+                rows="10"
+                readonly
+                placeholder="Історія звернень до сторінок з'явиться тут..."></textarea>
+
+        </form>
+
+    </section>
+
+
+    <!-- ЗАВДАННЯ 4. ПОДІЇ МИШІ ДЛЯ ЗОБРАЖЕНЬ -->
+
+    <section class="lab7-section">
+
+        <h2>4. Обробка подій миші для зображень</h2>
+
+        <p>
+            Наведи курсор на зображення або натисни на нього,
+            щоб побачити зміну оформлення.
+        </p>
+
+        <div class="lab7-images">
+
+            <img
+                src="https://placehold.co/300x180/1769a6/ffffff?text=Computer"
+                alt="Комп'ютер"
+                class="lab7-image">
+
+            <img
+                src="https://placehold.co/300x180/168a63/ffffff?text=Hardware"
+                alt="Комплектуючі"
+                class="lab7-image">
+
+            <img
+                src="https://placehold.co/300x180/a33b3b/ffffff?text=Technology"
+                alt="Технології"
+                class="lab7-image">
+
+        </div>
+
+        <textarea
+            id="image-events-output"
+            rows="4"
+            readonly
+            placeholder="Події зображень з'являтимуться тут..."></textarea>
+
+    </section>
+
+
+    <!-- ЗАВДАННЯ 5. РЕГУЛЯРНІ ВИРАЗИ -->
+
+    <section class="lab7-section">
+
+        <h2>5. Пошук інформації за допомогою регулярних виразів</h2>
+
+        <p>
+            Введи текст та натисни кнопку пошуку.
+            Програма знайде слова, які починаються з літери «е»
+            та закінчуються літерою «а», порахує кількість слів,
+            цифр та цілих чисел.
+        </p>
+
+        <form id="regex-form">
+
+            <label for="input-text">
+                Введи текст для аналізу:
+            </label>
+
+            <textarea
+                id="input-text"
+                rows="6"
+                placeholder="Наприклад: Естафета, електрика, етика. У 2026 році є 15 комп'ютерів та 3.5 монітори."></textarea>
+
+            <button type="submit">
+                Пошук інформації
+            </button>
+
+        </form>
+
+        <div id="regex-result" class="lab7-result">
+            Результати пошуку з'являться тут.
+        </div>
+
+    </section>
+
+
+    <!-- ЗАВДАННЯ 6. ОБРОБКА МАСИВУ -->
+
+    <section class="lab7-section">
+
+        <h2>6. Обробка одновимірного масиву</h2>
+
+        <p>
+            Задано одновимірний масив A розміру N.
+            Необхідно знайти серед усіх від'ємних елементів
+            максимальний елемент та його індекс.
+        </p>
+
+        <form id="array-form">
+
+            <label for="array-input">
+                Введи елементи масиву через пробіл:
+            </label>
+
+            <input
+                type="text"
+                id="array-input"
+                value="5 -8 12 -3 -15 7 -2"
+                placeholder="Наприклад: 5 -8 12 -3 -15">
+
+            <button type="submit">
+                Array Task
+            </button>
+
+        </form>
+
+        <textarea
+            id="array-output"
+            rows="8"
+            readonly
+            placeholder="Результат обробки масиву з'явиться тут..."></textarea>
+
+    </section>
+
+
+    <!-- ІНФОРМАЦІЯ ПРО РОЗРОБНИКА -->
+
+    <section class="lab7-section">
+
+        <h2>Інформація про розробника</h2>
+
+        <p>
+            Розробник вебпроєкту ComputerZone:
+            <strong>vlad1x_</strong>
+        </p>
+
+        <p>
+            Лабораторна робота №7.
+            Використання JavaScript для обробки подій,
+            регулярних виразів та роботи з масивами.
+        </p>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 ComputerZone. Усі права захищені.</p>
+</footer>
+
+</body>
+</html>

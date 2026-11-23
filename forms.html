@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форми — ComputerZone</title>
+    <link rel="stylesheet" href="lab7.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="forms-page">
+
+<header>
+    <div class="logo">
+        <div class="pc-icon"></div>
+        <span>ComputerZone</span>
+    </div>
+
+    <nav class="site-nav">
+        <a href="index.html">Головна</a>
+        <a href="company.html">Компанія</a>
+        <a href="news.html">Новини</a>
+        <a href="lists.html">Списки</a>
+        <a href="menu.html">Меню</a>
+        <a href="tables.html">Таблиці</a>
+        <a href="forms.html">Форми</a>
+        <a href="lab7.html">Лабораторна №7</a>
+        <a href="lab8.html">Лабораторна №8</a>
+    </nav>
+</header>
+
+<main class="forms-container">
+
+    <section class="forms-hero">
+        <h1>Форма замовлення комп'ютерної техніки</h1>
+        <p>
+            Заповніть форму, щоб підібрати комп'ютерну техніку
+            та залишити інформацію для оформлення замовлення.
+        </p>
+    </section>
+
+    <form id="computer-form"
+          name="computerOrder"
+          class="computer-form"
+          lang="uk"
+          novalidate
+          enctype="multipart/form-data"
+          action="#">
+
+        <fieldset class="form-fieldset" id="personal-data" lang="uk">
+            <legend id="personal-legend" dir="ltr"
+                    style="color:#48a9ff;">
+                Особисті дані
+            </legend>
+
+            <label for="customer-name">Ім'я та прізвище:</label>
+            <input type="text"
+                   id="customer-name"
+                   name="customerName"
+                   dir="ltr"
+                   minlength="2"
+                   size="35"
+                   required
+                   placeholder="Введіть ім'я та прізвище">
+
+            <label for="customer-phone">Номер телефону:</label>
+            <input type="tel"
+                   id="customer-phone"
+                   name="phone"
+                   required
+                   placeholder="+380XXXXXXXXX">
+
+            <label for="customer-email">Електронна пошта:</label>
+            <input type="email"
+                   id="customer-email"
+                   name="email"
+                   required
+                   placeholder="example@gmail.com">
+
+            <label for="customer-site">Ваш сайт:</label>
+            <input type="url"
+                   id="customer-site"
+                   name="website"
+                   placeholder="https://example.com">
+
+            <label for="order-date">Дата замовлення:</label>
+            <input type="date"
+                   id="order-date"
+                   name="orderDate"
+                   required>
+
+            <label for="order-week">Тиждень замовлення:</label>
+            <input type="week"
+                   id="order-week"
+                   name="orderWeek">
+        </fieldset>
+
+        <fieldset class="form-fieldset" id="product-data" lang="uk">
+            <legend id="product-legend" dir="ltr"
+                    style="color:#48a9ff;">
+                Вибір товару
+            </legend>
+
+            <label for="product-type">Тип комп'ютерної техніки:</label>
+            <select id="product-type"
+                    name="productType"
+                    title="Виберіть тип товару"
+                    autofocus>
+                <option value="">Оберіть товар</option>
+                <optgroup label="Комп'ютери">
+                    <option value="office">Office Start</option>
+                    <option value="home">Home Pro</option>
+                    <option value="gamer">Gamer X</option>
+                    <option value="ultra">Ultra Pro</option>
+                </optgroup>
+                <optgroup label="Комплектуючі">
+                    <option value="monitor">Монітор</option>
+                    <option value="keyboard">Клавіатура</option>
+                    <option value="mouse">Миша</option>
+                </optgroup>
+            </select>
+
+            <label for="disabled-category">Недоступна категорія:</label>
+            <select id="disabled-category" name="disabledCategory" disabled>
+                <option value="">Категорія тимчасово недоступна</option>
+            </select>
+
+            <label for="extra-products">Додаткові товари (можна обрати декілька):</label>
+            <select id="extra-products"
+                    name="extraProducts"
+                    multiple
+                    size="4">
+                <option value="monitor">Монітор</option>
+                <option value="keyboard">Клавіатура</option>
+                <option value="mouse">Миша</option>
+                <option value="headphones">Навушники</option>
+            </select>
+
+            <label for="product-search">Пошук товару:</label>
+            <input type="search"
+                   id="product-search"
+                   name="productSearch"
+                   list="product-options"
+                   placeholder="Введіть назву товару">
+
+            <datalist id="product-options">
+                <option value="Office Start">
+                <option value="Home Pro">
+                <option value="Gamer X">
+                <option value="Ultra Pro">
+            </datalist>
+
+            <label for="quantity">Кількість товару:</label>
+            <input type="number"
+                   id="quantity"
+                   name="quantity"
+                   min="1"
+                   max="20"
+                   value="1"
+                   required>
+
+            <label for="budget">Бюджет:</label>
+            <input type="range"
+                   id="budget"
+                   name="budget"
+                   min="5000"
+                   max="100000"
+                   value="30000">
+
+            <output id="budget-output"
+                    class="form-output"
+                    form="computer-form"
+                    for="budget">30000</output>
+
+            <label for="favorite-color">Колір корпусу:</label>
+            <input type="color"
+                   id="favorite-color"
+                   name="caseColor"
+                   value="#1769a6">
+
+            <label for="product-photo">Додати фото або файл:</label>
+            <input type="file"
+                   id="product-photo"
+                   name="productPhoto"
+                   multiple>
+        </fieldset>
+
+        <fieldset class="form-fieldset" id="delivery-data" lang="uk">
+            <legend id="delivery-legend" dir="ltr"
+                    style="color:#48a9ff;">
+                Доставка та додаткові параметри
+            </legend>
+
+            <label for="delivery-address">Адреса доставки:</label>
+            <textarea id="delivery-address"
+                      name="address"
+                      form="computer-form"
+                      lang="uk"
+                      wrap="soft"
+                      required
+                      autofocus
+                      placeholder="Введіть адресу доставки"></textarea>
+
+            <label for="comment">Коментар до замовлення:</label>
+            <textarea id="comment"
+                      name="comment"
+                      form="computer-form"
+                      lang="uk"
+                      wrap="hard"
+                      rows="4"
+                      placeholder="Додаткова інформація"></textarea>
+
+            <label for="readonly-info">Інформація про магазин:</label>
+            <textarea id="readonly-info"
+                      name="storeInfo"
+                      form="computer-form"
+                      lang="uk"
+                      wrap="soft"
+                      readonly>ComputerZone — магазин комп'ютерної техніки.</textarea>
+
+            <div class="checkbox-line">
+                <input type="checkbox"
+                       id="warranty"
+                       name="warranty"
+                       value="yes">
+                <label for="warranty">Потрібна додаткова гарантія</label>
+            </div>
+
+            <div class="checkbox-line">
+                <input type="checkbox"
+                       id="agreement"
+                       name="agreement"
+                       value="yes"
+                       required>
+                <label for="agreement">Погоджуюся з умовами замовлення</label>
+            </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset" id="status-data" lang="uk">
+            <legend id="status-legend" dir="ltr"
+                    style="color:#48a9ff;">
+                Статус замовлення
+            </legend>
+
+            <p>Заповнення форми:</p>
+            <progress id="form-progress"
+                      dir="ltr"
+                      style="width:100%;"
+                      value="70"
+                      max="100">70%</progress>
+
+            <p>Рівень готовності замовлення:</p>
+            <meter id="order-meter"
+                   class="order-meter"
+                   title="Рівень готовності замовлення"
+                   min="0"
+                   max="100"
+                   value="65">65%</meter>
+
+            <details class="form-details"
+                     title="Додаткова інформація"
+                     style="margin-top:15px;">
+                <summary>Детальніше про замовлення</summary>
+                <p>
+                    Після заповнення форми можна перевірити введені дані.
+                    Ця демонстраційна форма не надсилає дані на сервер.
+                </p>
+            </details>
+        </fieldset>
+
+        <section id="form-search-section" class="form-search-section">
+            <h2>Додаткові текстові перевірки</h2>
+
+            <label for="digit-search">Текст для підрахунку цифр:</label>
+            <input type="text"
+                   id="digit-search"
+                   name="digitSearch"
+                   placeholder="Наприклад: PC2026">
+
+            <p id="digit-result">Кількість цифр: 0</p>
+
+            <label for="word-search">Слова, що починаються на k і закінчуються на o:</label>
+            <input type="text"
+                   id="word-search"
+                   name="wordSearch"
+                   placeholder="Наприклад: kino kilo hello">
+
+            <p id="word-result">Знайдені слова: немає</p>
+        </section>
+
+        <section class="image-map-section">
+            <h2>Вибір розділу за допомогою фігур</h2>
+            <p>Натисніть на фігуру, щоб перейти до відповідного розділу форми.</p>
+
+            <svg viewBox="0 0 500 150"
+                 role="img"
+                 aria-label="Фігури для переходу до розділів форми">
+
+                <a href="#personal-data">
+                    <rect x="15" y="25" width="90" height="90"
+                          fill="#1769a6" stroke="#ffffff" stroke-width="3"/>
+                </a>
+
+                <a href="#product-data">
+                    <circle cx="190" cy="70" r="45"
+                            fill="#168a63" stroke="#ffffff" stroke-width="3"/>
+                </a>
+
+                <a href="#delivery-data">
+                    <polygon points="315,115 365,25 415,115"
+                             fill="#a33b3b" stroke="#ffffff" stroke-width="3"/>
+                </a>
+
+                <a href="#status-data">
+                    <polygon points="465,25 477,58 495,58 480,78 487,110 465,92 443,110 450,78 435,58 453,58"
+                             fill="#d49a28" stroke="#ffffff" stroke-width="2"/>
+                </a>
+            </svg>
+        </section>
+
+        <p class="speech-examples">
+            Текст для демонстрації звукових CSS-властивостей.
+        </p>
+
+        <div class="form-buttons">
+            <button type="submit"
+                    form="computer-form"
+                    formaction="#"
+                    formtarget="_self"
+                    value="submit">
+                Перевірити форму
+            </button>
+
+            <button type="reset" value="reset">
+                Очистити форму
+            </button>
+
+            <input type="image"
+                   src="https://placehold.co/120x40/1769a6/ffffff?text=Send"
+                   width="120"
+                   height="40"
+                   name="imageSubmit"
+                   alt="Відправити форму"
+                   formmethod="post"
+                   formenctype="multipart/form-data">
+        </div>
+
+        <p id="form-message" class="form-message" aria-live="polite"></p>
+
+    </form>
+
+    <section class="legacy-elements">
+        <h2>Приклади застарілих HTML-елементів</h2>
+
+        <p>
+            Елементи keygen та isindex належать до застарілих елементів HTML
+            і не підтримуються сучасними браузерами як стандартні елементи форм.
+        </p>
+
+        <!-- Застарілі приклади з навчальної таблиці:
+             <keygen name="security">
+             <isindex prompt="Пошук">
+        -->
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 ComputerZone. Усі права захищені.</p>
+</footer>
+
+<script>
+    const form = document.getElementById("computer-form");
+    const message = document.getElementById("form-message");
+
+    const budget = document.getElementById("budget");
+    const budgetOutput = document.getElementById("budget-output");
+
+    budget.addEventListener("input", function () {
+        budgetOutput.value = budget.value;
+        budgetOutput.textContent = budget.value;
+    });
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+            message.textContent = "Будь ласка, заповніть усі обов'язкові поля правильно.";
+            message.className = "form-message error";
+            form.reportValidity();
+            return;
+        }
+
+        message.textContent = "Форму успішно перевірено! Дані не надсилалися на сервер.";
+        message.className = "form-message success";
+    });
+
+    form.addEventListener("reset", function () {
+        message.textContent = "Форму очищено.";
+        message.className = "form-message";
+        budgetOutput.value = "30000";
+        budgetOutput.textContent = "30000";
+    });
+
+    document.getElementById("digit-search").addEventListener("input", function () {
+        const count = (this.value.match(/\d/g) || []).length;
+        document.getElementById("digit-result").textContent =
+            "Кількість цифр: " + count;
+    });
+
+    document.getElementById("word-search").addEventListener("input", function () {
+        const words = this.value.match(/\b[kK][a-zA-Z]*[oO]\b/g) || [];
+        document.getElementById("word-result").textContent =
+            "Знайдені слова: " + (words.length ? words.join(", ") : "немає");
+    });
+</script>
+<script src="lab7.js"></script>
+</body>
+</html>

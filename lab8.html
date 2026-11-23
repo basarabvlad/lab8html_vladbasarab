@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="vlad1x_">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Лабораторна робота №8 — Canvas</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lab8.css">
+</head>
+
+<body class="lab8-page">
+
+<header>
+    <div class="logo">
+        <div class="pc-icon"></div>
+        ComputerZone
+    </div>
+
+    <nav>
+        <a href="index.html">Головна</a>
+        <a href="company.html">Комп'ютери</a>
+        <a href="news.html">Новини</a>
+        <a href="lists.html">Списки</a>
+        <a href="menu.html">Меню сайту</a>
+        <a href="tables.html">Таблиці</a>
+        <a href="forms.html">Форми</a>
+        <a href="lab6.html">Лабораторна №6</a>
+        <a href="lab8.html">Лабораторна №8</a>
+    </nav>
+</header>
+
+<main class="lab8-container">
+
+    <h1 class="lab8-title">
+        Лабораторна робота №8
+    </h1>
+
+    <p class="lab8-description">
+        Тема: Розробка веб-сторінок з растровими рисунками.
+        Побудова геометричних фігур на полотні Canvas
+        з використанням JavaScript.
+    </p>
+
+    <section class="lab8-section">
+
+        <h2>1. Побудова геометричних фігур на Canvas</h2>
+
+        <p>
+            За допомогою елемента HTML5 Canvas та JavaScript
+            побудовано групу геометричних фігур відповідно
+            до варіанта №2 лабораторної роботи №6.
+            На полотні відображено координатні осі X та Y,
+            кола, квадрати та еліпси.
+        </p>
+
+        <div class="canvas-frame">
+
+            <canvas id="drawingCanvas"
+                    width="700"
+                    height="600">
+
+                Ваш браузер не підтримує тег canvas.
+
+            </canvas>
+
+        </div>
+
+        <div class="canvas-controls">
+
+            <button type="button" id="startAnimation">
+                Запустити трансформацію
+            </button>
+
+            <button type="button" id="addFigure">
+                Додати фігуру
+            </button>
+
+            <button type="button" id="resetCanvas">
+                Відновити початковий вигляд
+            </button>
+
+        </div>
+
+        <p id="canvas-status" class="canvas-status">
+            Початкове зображення. Натисніть кнопку
+            для запуску анімації.
+        </p>
+
+        <p class="canvas-hint">
+            Також можна натиснути безпосередньо на полотно,
+            щоб додати нову геометричну фігуру.
+        </p>
+
+    </section>
+
+    <section class="lab8-section">
+
+        <h2>2. Використані можливості Canvas</h2>
+
+        <ul>
+            <li>getContext("2d") — отримання двовимірного контексту полотна;</li>
+            <li>beginPath() та closePath() — створення контурів фігур;</li>
+            <li>arc() — побудова кіл;</li>
+            <li>ellipse() — побудова еліпсів;</li>
+            <li>rect() — побудова прямокутників та квадратів;</li>
+            <li>moveTo() та lineTo() — побудова ліній;</li>
+            <li>fill() та stroke() — заливка й обведення фігур;</li>
+            <li>createLinearGradient() — створення градієнтної заливки;</li>
+            <li>translate(), rotate(), scale() — трансформація фігур;</li>
+            <li>save() та restore() — збереження і відновлення стану контексту;</li>
+            <li>requestAnimationFrame() — виконання анімації.</li>
+        </ul>
+
+    </section>
+
+    <section class="lab8-section">
+
+        <h2>3. Трансформація та переміщення фігур</h2>
+
+        <p>
+            За допомогою JavaScript реалізовано анімацію
+            окремих геометричних фігур. Під час запуску
+            анімації коло переміщується, центральний еліпс
+            обертається та змінює розмір, а квадрат
+            переміщується й обертається.
+        </p>
+
+        <p>
+            Для виконання трансформацій використовуються
+            методи translate(), rotate() та scale().
+            Анімація виконується за допомогою
+            requestAnimationFrame().
+        </p>
+
+    </section>
+
+</main>
+
+<footer>
+    ComputerZone © 2026 | Лабораторна робота №8 — Canvas
+</footer>
+
+<script src="lab8.js"></script>
+
+</body>
+</html>
